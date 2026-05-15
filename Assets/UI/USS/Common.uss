@@ -1,0 +1,16 @@
+.menu-button {
+    transition-property: scale;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out-cubic;
+    
+    transform-origin: center;
+}
+
+.menu-button:hover {
+    scale: 1.1;
+}
+
+.menu-button:active {
+    scale: 0.95;
+    background-color: rgb(200, 200, 200);
+}

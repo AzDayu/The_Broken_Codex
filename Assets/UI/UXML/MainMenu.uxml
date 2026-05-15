@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:Template name="StartBtn" src="btn-start.uxml" />
+    <ui:Template name="QuitBtn" src="btn-quit.uxml" />
+
+    <ui:VisualElement name="main-container" style="flex-grow: 1; justify-content: center; align-items: center;">
+        <ui:Instance template="StartBtn" name="main-btn-start" />
+        <ui:Instance template="QuitBtn" name="main-btn-quit" />
+    </ui:VisualElement>
+</ui:UXML>
