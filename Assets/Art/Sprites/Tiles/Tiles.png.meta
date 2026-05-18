@@ -1,46 +1,37 @@
 fileFormatVersion: 2
-guid: 481cf0ffba295ad43aa9930af8af0da5
+guid: 3caf533be3699e0478f8dd87683d6cd0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6527624821561351098
-    second: Restored_0
+      213: 7223950226953391895
+    second: Tiles_0
   - first:
-      213: -3693931683230997851
-    second: Restored_1
+      213: -8377130690987618698
+    second: Tiles_1
   - first:
-      213: -6007750780143366648
-    second: Restored_2
+      213: -4684333735789482159
+    second: Tiles_2
   - first:
-      213: -1460244227822966144
-    second: Restored_3
+      213: -5062486230716756072
+    second: Tiles_3
   - first:
-      213: 2914948651288697890
-    second: Restored_4
+      213: 4099902767569298868
+    second: Tiles_4
   - first:
-      213: -5640999416832672561
-    second: Restored_5
+      213: -6833445872158455971
+    second: Tiles_5
   - first:
-      213: 5091680474538112578
-    second: Restored_6
+      213: -537749870668139058
+    second: Tiles_6
   - first:
-      213: -6761339470027592399
-    second: Restored_7
+      213: 1561205615984820651
+    second: Tiles_7
   - first:
-      213: 7046170222839869051
-    second: Restored_8
+      213: 857779327251732012
+    second: Tiles_8
   - first:
-      213: 833731519544826111
-    second: Restored_9
-  - first:
-      213: 2985447352395222672
-    second: Restored_10
-  - first:
-      213: -6213621262404481485
-    second: Restored_11
-  - first:
-      213: -2136855701234223
-    second: Restored_12
+      213: 3825752689756085014
+    second: Tiles_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,10 +75,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 270
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -149,123 +140,35 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Restored_0
+      name: Tiles_0
       rect:
         serializedVersion: 2
-        x: 68
-        y: 1135
-        width: 497
-        height: 286
+        x: 47
+        y: 809
+        width: 270
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: abbdf2cb038c69a50800000000000000
-      internalID: 6527624821561351098
+      spriteID: 71fc8a01570a04460800000000000000
+      internalID: 7223950226953391895
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Restored_1
+      name: Tiles_1
       rect:
         serializedVersion: 2
-        x: 596
-        y: 1135
-        width: 491
-        height: 286
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5a2a47494b48cbcc0800000000000000
-      internalID: -3693931683230997851
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Restored_2
-      rect:
-        serializedVersion: 2
-        x: 1085
-        y: 490
-        width: 668
-        height: 967
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 80e8a72fe7e20aca0800000000000000
-      internalID: -6007750780143366648
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Restored_3
-      rect:
-        serializedVersion: 2
-        x: 1773
-        y: 757
-        width: 238
-        height: 571
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 08a2c4b8c9b2cbbe0800000000000000
-      internalID: -1460244227822966144
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Restored_4
-      rect:
-        serializedVersion: 2
-        x: 2037
-        y: 856
-        width: 271
-        height: 541
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 22c1192ba5af37820800000000000000
-      internalID: 2914948651288697890
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Restored_5
-      rect:
-        serializedVersion: 2
-        x: 2306
+        x: 327
         y: 793
-        width: 459
-        height: 625
+        width: 279
+        height: 175
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -274,20 +177,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fccb08deae427b1b0800000000000000
-      internalID: -5640999416832672561
+      spriteID: 67e09ae35047ebb80800000000000000
+      internalID: -8377130690987618698
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Restored_6
+      name: Tiles_2
       rect:
         serializedVersion: 2
-        x: 68
-        y: 811
-        width: 497
-        height: 289
+        x: 612
+        y: 794
+        width: 252
+        height: 174
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -296,20 +199,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 246f2aa2a6849a640800000000000000
-      internalID: 5091680474538112578
+      spriteID: 15fa3e43947edfeb0800000000000000
+      internalID: -4684333735789482159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Restored_7
+      name: Tiles_3
       rect:
         serializedVersion: 2
-        x: 596
-        y: 749
-        width: 491
-        height: 350
+        x: 873
+        y: 793
+        width: 279
+        height: 182
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 13d6d2b3395ea22a0800000000000000
-      internalID: -6761339470027592399
+      spriteID: 89f42d9689f6eb9b0800000000000000
+      internalID: -5062486230716756072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Restored_8
+      name: Tiles_4
       rect:
         serializedVersion: 2
-        x: 2180
-        y: 88
-        width: 557
-        height: 751
+        x: 1160
+        y: 794
+        width: 334
+        height: 177
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -340,42 +243,42 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b7e2e474c7609c160800000000000000
-      internalID: 7046170222839869051
+      spriteID: 4b5eb9a48d7c5e830800000000000000
+      internalID: 4099902767569298868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Restored_9
+      name: Tiles_5
       rect:
         serializedVersion: 2
-        x: 68
-        y: 478
-        width: 497
-        height: 295
+        x: 48
+        y: 604
+        width: 270
+        height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ff814845662029b00800000000000000
-      internalID: 833731519544826111
+      spriteID: d57c2263f29ba21a0800000000000000
+      internalID: -6833445872158455971
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Restored_10
+      name: Tiles_6
       rect:
         serializedVersion: 2
-        x: 1129
-        y: 88
-        width: 541
-        height: 460
+        x: 328
+        y: 596
+        width: 278
+        height: 175
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -384,20 +287,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 09ec527ac807e6920800000000000000
-      internalID: 2985447352395222672
+      spriteID: ec530dc77578988f0800000000000000
+      internalID: -537749870668139058
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Restored_11
+      name: Tiles_7
       rect:
         serializedVersion: 2
-        x: 1690
-        y: 94
-        width: 453
-        height: 526
+        x: 613
+        y: 598
+        width: 252
+        height: 172
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -406,20 +309,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 33e019d0268c4c9a0800000000000000
-      internalID: -6213621262404481485
+      spriteID: ba1ce127c348aa510800000000000000
+      internalID: 1561205615984820651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Restored_12
+      name: Tiles_8
       rect:
         serializedVersion: 2
-        x: 57
-        y: 109
-        width: 535
-        height: 319
+        x: 874
+        y: 597
+        width: 277
+        height: 173
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -428,8 +331,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1ddddf28a8868fff0800000000000000
-      internalID: -2136855701234223
+      spriteID: c265380e0c177eb00800000000000000
+      internalID: 857779327251732012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_9
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 597
+        width: 334
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61b18673dcdc71530800000000000000
+      internalID: 3825752689756085014
       vertices: []
       indices: 
       edges: []
@@ -438,7 +363,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 834164815d0868c4c8e0ef9c1d76cb14
     internalID: 0
     vertices: []
     indices: 
@@ -448,19 +373,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Restored_0: 6527624821561351098
-      Restored_1: -3693931683230997851
-      Restored_10: 2985447352395222672
-      Restored_11: -6213621262404481485
-      Restored_12: -2136855701234223
-      Restored_2: -6007750780143366648
-      Restored_3: -1460244227822966144
-      Restored_4: 2914948651288697890
-      Restored_5: -5640999416832672561
-      Restored_6: 5091680474538112578
-      Restored_7: -6761339470027592399
-      Restored_8: 7046170222839869051
-      Restored_9: 833731519544826111
+      Tiles_0: 7223950226953391895
+      Tiles_1: -8377130690987618698
+      Tiles_2: -4684333735789482159
+      Tiles_3: -5062486230716756072
+      Tiles_4: 4099902767569298868
+      Tiles_5: -6833445872158455971
+      Tiles_6: -537749870668139058
+      Tiles_7: 1561205615984820651
+      Tiles_8: 857779327251732012
+      Tiles_9: 3825752689756085014
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
