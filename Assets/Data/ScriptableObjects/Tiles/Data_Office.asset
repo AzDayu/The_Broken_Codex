@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Data_Office
   m_EditorClassIdentifier: Assembly-CSharp::TileData
   tileName: 
-  tileAsset: {fileID: 11400000, guid: 055f0d82db7324b4491b87fcfeb55d78, type: 2}
+  tileAsset: {fileID: 11400000, guid: 6d0877ee365939549a243a1eb084950f, type: 2}
   isWalkable: 1

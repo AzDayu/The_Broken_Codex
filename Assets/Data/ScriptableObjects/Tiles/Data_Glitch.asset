@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Data_Glitch
   m_EditorClassIdentifier: Assembly-CSharp::TileData
   tileName: 
-  tileAsset: {fileID: 11400000, guid: 6d0877ee365939549a243a1eb084950f, type: 2}
+  tileAsset: {fileID: 11400000, guid: 256b52d017b21e84981f8bb3767d2257, type: 2}
   isWalkable: 1
