@@ -40,13 +40,11 @@ public class PlayerController : MonoBehaviour
         moveInput = value.Get<Vector2>();
     }
 
-    private void OnJump(InputValue value)
+    private void OnJump()
     {
-        if (!canMove) return;
-
-        if (value.isPressed && IsGrounded())
+        if (moveInput != Vector2.zero)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            rb.AddForce(moveInput * jumpForce);
         }
     }
 
@@ -102,11 +100,5 @@ public class PlayerController : MonoBehaviour
         if (!canMove) return;
 
         rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, moveInput.y * moveSpeed);
-    }
-
-    private bool IsGrounded()
-    {
-        return Physics2D.CapsuleCast(capsuleCollider.bounds.center, capsuleCollider.size,
-            capsuleCollider.direction, 0, Vector2.down, 0.1f, groundLayer);
     }
 }
