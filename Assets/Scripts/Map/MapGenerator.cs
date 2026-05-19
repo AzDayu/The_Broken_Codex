@@ -3,9 +3,6 @@ using UnityEngine.Tilemaps;
 
 namespace Codex.Map
 {
-    /// <summary>
-    /// The Broken Codex: 파편화된 세계 생성을 담당하는 핵심 클래스
-    /// </summary>
     public class MapGenerator : MonoBehaviour
     {
         [Header("Scene References")]
@@ -23,18 +20,15 @@ namespace Codex.Map
         public int height = 50;
 
         [Range(0.01f, 0.5f)]
-        public float noiseScale = 0.15f; // 노이즈 밀도: 낮을수록 덩어리가 커집니다.
+        public float noiseScale = 0.15f;
 
         [Range(0, 1)]
-        public float threshold = 0.6f;   // 글리치 비율: 높을수록 글리치 타일이 적게 생성됩니다.
+        public float threshold = 0.6f;
 
         [Header("Seed System")]
         public bool useRandomSeed = true;
         public int seed;
 
-        /// <summary>
-        /// 인스펙터의 컴포넌트 메뉴(점 세 개)에서 'Generate Map'을 클릭하면 즉시 실행됩니다.
-        /// </summary>
         [ContextMenu("Generate Map")]
         public void Generate()
         {
@@ -44,35 +38,27 @@ namespace Codex.Map
                 return;
             }
 
-            // 1. 기존 맵 데이터 초기화
             targetTilemap.ClearAllTiles();
 
-            // 2. 시드 설정
             if (useRandomSeed) seed = Random.Range(0, 100000);
 
-            // 3. 맵 루프 실행
             for (int x = 0; x < width; x++)
             {
                 for (int y = 0; y < height; y++)
                 {
-                    // 펄린 노이즈 계산 (시드를 더해 매번 다른 맵 생성)
                     float xCoord = (float)x * noiseScale + seed;
                     float yCoord = (float)y * noiseScale + seed;
                     float noiseValue = Mathf.PerlinNoise(xCoord, yCoord);
 
-                    // Isometric Z as Y 환경에서 바닥은 동일 평면(z=0)에 배치
                     Vector3Int tilePos = new Vector3Int(x, y, 0);
 
-                    // 4. 노이즈 임계값(Threshold)에 따른 타일 결정
                     if (noiseValue > threshold)
                     {
-                        // 글리치 구역 배치
-                        targetTilemap.SetTile(tilePos, glitchData.tileAsset);
+                        targetTilemap.SetTile(tilePos, glitchData.GetRandomTile());
                     }
                     else
                     {
-                        // 일반 사무실 구역 배치
-                        targetTilemap.SetTile(tilePos, officeData.tileAsset);
+                        targetTilemap.SetTile(tilePos, officeData.GetRandomTile());
                     }
                 }
             }
