@@ -2,10 +2,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+
+public enum TileType
+{
+    None,
+    Office,
+    Glitch,
+    Restored 
+}
+
+
+
 [CreateAssetMenu(fileName = "NewTileData", menuName = "Codex/TileData")]
 public class TileData : ScriptableObject
 {
-    public string tileName;
+    public TileType tileType;
     public List<TileBase> variations;
     public bool isWalkable = true;
 

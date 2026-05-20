@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 783f40876dfe22e448b3afef9445981a, type: 3}
   m_Name: Data_Office
   m_EditorClassIdentifier: Assembly-CSharp::TileData
-  tileName: 
+  tileType: 1
   variations:
   - {fileID: 11400000, guid: 0478b83319b85264ea21ffb82e23a0a7, type: 2}
   - {fileID: 11400000, guid: 01dcc32ac32a0bd4880ae8f257611858, type: 2}

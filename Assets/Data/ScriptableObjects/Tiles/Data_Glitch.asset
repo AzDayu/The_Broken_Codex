@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 783f40876dfe22e448b3afef9445981a, type: 3}
   m_Name: Data_Glitch
   m_EditorClassIdentifier: Assembly-CSharp::TileData
-  tileName: 
+  tileType: 2
   variations:
   - {fileID: 11400000, guid: 256b52d017b21e84981f8bb3767d2257, type: 2}
   - {fileID: 11400000, guid: 0a59f9eb8eb51ed46b5f55ddd2bba3b7, type: 2}
