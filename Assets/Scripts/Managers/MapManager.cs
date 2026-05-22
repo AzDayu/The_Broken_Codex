@@ -11,8 +11,8 @@ public class MapManager : MonoBehaviour
 
     private Dictionary<Vector2Int, TileType> tileDataDict = new Dictionary<Vector2Int, TileType>();
 
-    [Header("Debug Info")]
-    public int debugTileCount;
+    public int debugOfficeTileCount;
+    public int debugGlitchTileCount;
 
     private void Awake()
     {
@@ -31,9 +31,14 @@ public class MapManager : MonoBehaviour
     {
         tileDataDict = new Dictionary<Vector2Int, TileType>(generatedData);
         targetTilemap = tilemap;
-        debugTileCount = tileDataDict.Count;
+        //debugOfficeTileCount = tileDataDict.
 
-        Debug.Log($"<color=green>[MapManager]</color> 성공적으로 {debugTileCount}개의 타일 데이터를 전달받아 저장했습니다.");
+        //Debug.Log($"<color=green>[MapManager]</color> 성공적으로 {debugOfficeTileCount}개의 타일 데이터를 전달받아 저장했습니다.");
+    }
+
+    public Dictionary<Vector2Int, TileType> GetMapData()
+    {
+        return tileDataDict;
     }
 
     public TileType GetTileUnderPosition(Vector3 worldPosition)
@@ -43,11 +48,10 @@ public class MapManager : MonoBehaviour
         Vector3Int cellPosition = targetTilemap.WorldToCell(worldPosition);
         Vector2Int gridPos = new Vector2Int(cellPosition.x, cellPosition.y);
 
-        if (tileDataDict.TryGetValue(gridPos, out TileType tileType))
+        if (tileDataDict.TryGetValue(gridPos, out TileType type))
         {
-            return tileType;
+            return type;
         }
-
         return TileType.None;
     }
 }

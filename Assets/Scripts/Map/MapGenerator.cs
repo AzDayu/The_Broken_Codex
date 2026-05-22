@@ -4,77 +4,104 @@ using System.Collections.Generic;
 
 public class MapGenerator : MonoBehaviour
 {
-    [Header("Scene References")]
-    [Tooltip("타일이 그려질 Isometric Z as Y 타일맵 (Base_Layer)")]
-    public Tilemap targetTilemap;
+    [Header("Tilemaps")]
+    public Tilemap floorTilemap; 
+    public Tilemap wallTilemap; 
 
     [Header("Tile Data (ScriptableObjects)")]
     public TileData officeData;
     public TileData glitchData;
+    public TileData wallData;
 
-    [Header("Generation Settings")]
-    public int width = 50;
-    public int height = 50;
-
-    [Range(0.01f, 0.5f)] public float noiseScale = 0.15f;
-    [Range(0, 1)] public float threshold = 0.6f;
-
-    [Header("Seed System")]
-    public bool useRandomSeed = true;
-    public int seed;
-
-    private void Start()
-    {
-        Generate();
-    }
+    [Header("Maze Settings")]
+    public int width = 31;
+    public int height = 31;
 
     [ContextMenu("Generate Map")]
-    public void Generate()
+    public void GenerateMap()
     {
-        if (targetTilemap == null || officeData == null || glitchData == null)
+        if (floorTilemap == null || wallTilemap == null || officeData == null || wallData == null)
         {
-            Debug.LogError("MapGenerator: 필수 데이터가 연결되지 않았습니다!");
+            Debug.LogError("MapGenerator: 필수 데이터나 타일맵이 연결되지 않았습니다!");
             return;
         }
 
-        targetTilemap.ClearAllTiles();
+        floorTilemap.ClearAllTiles();
+        wallTilemap.ClearAllTiles();
 
         Dictionary<Vector2Int, TileType> tempMapData = new Dictionary<Vector2Int, TileType>();
-
-        if (useRandomSeed) seed = Random.Range(0, 100000);
 
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
-                float xCoord = (float)x * noiseScale + seed;
-                float yCoord = (float)y * noiseScale + seed;
-                float noiseValue = Mathf.PerlinNoise(xCoord, yCoord);
+                tempMapData[new Vector2Int(x, y)] = TileType.Wall;
+            }
+        }
 
-                Vector3Int tilePos = new Vector3Int(x, y, 0);
-                Vector2Int gridPos = new Vector2Int(x, y);
+        Stack<Vector2Int> stack = new Stack<Vector2Int>();
+        Vector2Int startPos = new Vector2Int(1, 1);
+        tempMapData[startPos] = TileType.Office;
+        stack.Push(startPos);
 
-                if (noiseValue > threshold)
-                {
-                    targetTilemap.SetTile(tilePos, glitchData.GetRandomTile());
-                    tempMapData[gridPos] = glitchData.tileType;
-                }
-                else
-                {
-                    targetTilemap.SetTile(tilePos, officeData.GetRandomTile());
-                    tempMapData[gridPos] = officeData.tileType;
-                }
+        while (stack.Count > 0)
+        {
+            Vector2Int currentPos = stack.Peek();
+            List<Vector2Int> unvisitedNeighbors = GetUnvisitedNeighbors(currentPos, tempMapData);
+
+            if (unvisitedNeighbors.Count > 0)
+            {
+                Vector2Int chosenPos = unvisitedNeighbors[Random.Range(0, unvisitedNeighbors.Count)];
+
+                Vector2Int wallToBreak = currentPos + (chosenPos - currentPos) / 2;
+                tempMapData[wallToBreak] = TileType.Office;
+                tempMapData[chosenPos] = TileType.Office;
+
+                stack.Push(chosenPos);
+            }
+            else
+            {
+                stack.Pop();
+            }
+        }
+
+        foreach (var kvp in tempMapData)
+        {
+            Vector3Int tilePos = new Vector3Int(kvp.Key.x, kvp.Key.y, 0);
+
+            if (kvp.Value == TileType.Wall)
+            {
+                floorTilemap.SetTile(tilePos, officeData.GetRandomTile());
+                wallTilemap.SetTile(tilePos, wallData.GetRandomTile());
+            }
+            else if (kvp.Value == TileType.Office)
+            {
+                floorTilemap.SetTile(tilePos, officeData.GetRandomTile());
             }
         }
 
         if (MapManager.Instance != null)
         {
-            MapManager.Instance.SetMapData(tempMapData, targetTilemap);
-            Debug.Log("<color=cyan>[MapGenerator]</color> MapManager에게 데이터 배달 완료!");
+            MapManager.Instance.SetMapData(tempMapData, floorTilemap);
         }
-        else
+    }
+
+    private List<Vector2Int> GetUnvisitedNeighbors(Vector2Int pos, Dictionary<Vector2Int, TileType> map)
+    {
+        List<Vector2Int> neighbors = new List<Vector2Int>();
+        Vector2Int[] directions = { new Vector2Int(0, 2), new Vector2Int(0, -2), new Vector2Int(-2, 0), new Vector2Int(2, 0) };
+
+        foreach (var dir in directions)
         {
-            Debug.LogError("MapGenerator: 씬에 MapManager 오브젝트를 찾을 수 없습니다!");
+            Vector2Int nPos = pos + dir;
+            if (nPos.x > 0 && nPos.x < width - 1 && nPos.y > 0 && nPos.y < height - 1)
+            {
+                if (map[nPos] == TileType.Wall)
+                {
+                    neighbors.Add(nPos);
+                }
+            }
         }
+        return neighbors;
     }
 }

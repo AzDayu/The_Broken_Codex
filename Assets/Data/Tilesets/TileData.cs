@@ -8,7 +8,8 @@ public enum TileType
     None,
     Office,
     Glitch,
-    Restored 
+    Restored,
+    Wall
 }
 
 

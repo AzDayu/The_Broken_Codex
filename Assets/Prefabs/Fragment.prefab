@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1356142688070825864}
   m_Layer: 0
   m_Name: Fragment
-  m_TagString: Untagged
+  m_TagString: Fragment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
