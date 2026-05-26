@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/GameUIStyle.uss?fileID=7433441132597879392&amp;guid=861a8344dbb95454d96b28fd24889fd4&amp;type=3"/>
+    <ui:VisualElement name="MainContainer" style="flex-grow: 1; flex-basis: auto; width: auto; height: auto;">
+        <ui:VisualElement name="TopPanel" picking-mode="Position" style="flex-grow: 1; flex-basis: auto; flex-wrap: nowrap; flex-direction: row; width: 100%; height: 10%; aspect-ratio: auto; min-width: 0%; min-height: 10%; max-width: 100%; max-height: 10%; bottom: 0%; left: 0%; top: 0%; right: 0%;">
+            <ui:Label text="Fragments: 0 / 5" name="ShardText" enabled="true" class="shard-style"/>
+            <ui:ProgressBar value="22" title="my-progress" name="GlitchGauge" class="GlitchGauge-style"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

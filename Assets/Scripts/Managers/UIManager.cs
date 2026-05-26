@@ -1,50 +1,52 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager Instance { get; private set; }
+    public static UIManager Instance;
 
-    private UIDocument _uiDocument;
-    private Dictionary<string, UIBase> _uiViews = new Dictionary<string, UIBase>();
+    private Label hpText;
+    private Label shardText;
+    private ProgressBar glitchGauge;
 
-    void Awake()
+    private void Awake()
     {
-        Instance = this;
-        _uiDocument = GetComponent<UIDocument>();
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
 
-        var views = GetComponentsInChildren<UIBase>(true);
-        Debug.Log($"[UIManager] 찾은 UI 뷰 개수: {views.Length}");
-
-        foreach (var view in views)
-        {
-            view.Initialize(_uiDocument.rootVisualElement);
-            _uiViews.Add(view.GetType().Name, view);
-            Debug.Log($"[UIManager] {view.GetType().Name} 초기화 완료");
-        }
+        Debug.Log("UIManager 실행");
     }
 
-    void Start()
+    private void OnEnable()
     {
-        ShowUI<MainMenuUI>();
+        var root = GetComponent<UIDocument>().rootVisualElement;
+
+        hpText = root.Q<Label>("HPText");
+        shardText = root.Q<Label>("ShardText");
+        glitchGauge = root.Q<ProgressBar>("GlitchGauge");
     }
 
-    public void ShowUI<T>() where T : UIBase
+
+   public void UpdateHP(int currentHP)
+   {
+       if (hpText != null)
+           hpText.text = $"HP: {currentHP}";
+   }
+
+    public void UpdateShards(int currentShards, int maxShards)
     {
-        string key = typeof(T).Name;
-        if (_uiViews.TryGetValue(key, out var view))
-        {
-            view.Show();
-        }
+        if (shardText != null)
+            shardText.text = $"파편: {currentShards} / {maxShards}";
     }
 
-    public void HideUI<T>() where T : UIBase
+    public void UpdateGlitchGauge(float currentValue, float maxValue)
     {
-        string key = typeof(T).Name;
-        if (_uiViews.TryGetValue(key, out var view))
+        if (glitchGauge != null)
         {
-            view.Hide();
+            glitchGauge.value = currentValue;
+            glitchGauge.highValue = maxValue;
+            glitchGauge.title = $"Glitch: {(currentValue / maxValue) * 100:0}%";
+            Debug.Log("glitchGauge 찾음");
         }
     }
 }

@@ -31,9 +31,6 @@ public class MapManager : MonoBehaviour
     {
         tileDataDict = new Dictionary<Vector2Int, TileType>(generatedData);
         targetTilemap = tilemap;
-        //debugOfficeTileCount = tileDataDict.
-
-        //Debug.Log($"<color=green>[MapManager]</color> 성공적으로 {debugOfficeTileCount}개의 타일 데이터를 전달받아 저장했습니다.");
     }
 
     public Dictionary<Vector2Int, TileType> GetMapData()

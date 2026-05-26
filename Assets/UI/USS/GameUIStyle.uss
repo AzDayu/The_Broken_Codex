@@ -1,0 +1,23 @@
+.shard-style {
+    font-size: 30px;
+    color: rgb(0, 255, 255);
+    -unity-font-style: bold;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.hp-style {
+    font-size: 30px;
+    color: rgb(150, 255, 150);
+    -unity-font-style: bold;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.GlitchGauge-style {
+    font-size: 30px;
+    color: rgb(255, 0, 255);
+    -unity-font-style: bold;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}

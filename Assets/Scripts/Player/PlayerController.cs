@@ -22,11 +22,16 @@ public class PlayerController : MonoBehaviour
 
     private UIManager uiManager;
 
+    public int hp = 100;
+
+    
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         currentMoveSpeed = moveSpeed;
+        UIManager.Instance.UpdateHP(hp);
     }
 
     void Start()
@@ -43,12 +48,33 @@ public class PlayerController : MonoBehaviour
     {
         if (canMove)
         {
-            rb.linearVelocity = moveInput * currentMoveSpeed;
+            Vector2 checkPosition = (Vector2)transform.position + (moveInput.normalized * 0.3f);
+
+            TileType nextTile = MapManager.Instance.GetTileUnderPosition(checkPosition);
+
+            if (CheckIfWalkable(nextTile))
+            {
+                rb.linearVelocity = moveInput * currentMoveSpeed;
+            }
+            else
+            {
+                rb.linearVelocity = Vector2.zero;
+            }
         }
         else
         {
             rb.linearVelocity = Vector2.zero;
         }
+    }
+
+    private bool CheckIfWalkable(TileType tileType)
+    {
+        if (tileType == TileType.Wall || tileType == TileType.None)
+        {
+            return false;
+        }
+
+        return true;
     }
 
     private void OnMove(InputValue value)
@@ -94,20 +120,18 @@ public class PlayerController : MonoBehaviour
                 break;
             case TileType.Glitch:
                 currentMoveSpeed = moveSpeed * 0.5f;
-                Debug.LogWarning("글리치 타일 위를 걷는 중! 이동 속도 감소!");
                 break;
             case TileType.None:
-                Debug.LogError("맵 밖으로 벗어났습니다!");
                 break;
         }
     }
 
-    private void OnDrawGizmos()
+    public void TakeDamage(int damage)
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, 0.1f);
+        hp -= damage;
+        // UI 업데이트 한 줄 호출!
+        UIManager.Instance.UpdateHP(hp);
     }
-    
 
     //private void OnOpen(InputValue value)
     //{

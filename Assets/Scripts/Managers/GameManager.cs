@@ -50,7 +50,8 @@ public class GameManager : MonoBehaviour
 
             if (player != null && currentTilemap != null)
             {
-                Vector3 startWorldPos = currentTilemap.GetCellCenterWorld(new Vector3Int(1, 1, 0));
+                int startPosOffset = mapGenerator.wallWidth;
+                Vector3 startWorldPos = currentTilemap.GetCellCenterWorld(new Vector3Int(startPosOffset, startPosOffset, 0));
 
                 player.transform.position = startWorldPos;
                 cinemachineCamera.Follow = player.transform;
@@ -64,6 +65,9 @@ public class GameManager : MonoBehaviour
         }
 
         Debug.Log("스테이지 세팅 완료! 새로운 구역이 시작되었습니다.");
+
+        UIManager.Instance.UpdateGlitchGauge(0,100);
+
     }
 
     public void GoToNextStage()
