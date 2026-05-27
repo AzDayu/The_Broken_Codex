@@ -5,13 +5,8 @@ using UnityEngine.Tilemaps;
 public class WallFader : MonoBehaviour
 {
     [Header("설정")]
-    [Tooltip("기둥 벽이 그려진 타일맵")]
     public Tilemap wallTilemap;
-
-    [Tooltip("투명해질 반경 (기본 1.5)")]
     public float checkRadius = 1.0f;
-
-    [Tooltip("가려질 때 벽의 투명도 (0: 완전투명 ~ 1: 불투명)")]
     public float fadeAlpha = 0.3f;
 
     private List<Vector3Int> fadedTiles = new List<Vector3Int>();

@@ -66,7 +66,6 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("스테이지 세팅 완료! 새로운 구역이 시작되었습니다.");
 
-        UIManager.Instance.UpdateGlitchGauge(0,100);
 
     }
 

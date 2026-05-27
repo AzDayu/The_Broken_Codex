@@ -3,50 +3,47 @@ using UnityEngine.UIElements;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager Instance;
+    public static UIManager  Instance { get; private set; }
 
-    private Label hpText;
-    private Label shardText;
-    private ProgressBar glitchGauge;
+    private UIDocument mainUIDocument;
+
+    [Header("UI Controllers")]
+    public GameHUDUI gameHUD;
+    public MainMenuUI mainMenuUI;
+    // 추후 추가될 UI들
+    // public PauseMenuUI pauseMenu;
+    // public InventoryUI inventoryUI;
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
-
-        Debug.Log("UIManager 실행");
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        var root = GetComponent<UIDocument>().rootVisualElement;
+        mainUIDocument = GetComponent<UIDocument>();
+        var root = mainUIDocument.rootVisualElement;
 
-        hpText = root.Q<Label>("HPText");
-        shardText = root.Q<Label>("ShardText");
-        glitchGauge = root.Q<ProgressBar>("GlitchGauge");
-    }
-
-
-   public void UpdateHP(int currentHP)
-   {
-       if (hpText != null)
-           hpText.text = $"HP: {currentHP}";
-   }
-
-    public void UpdateShards(int currentShards, int maxShards)
-    {
-        if (shardText != null)
-            shardText.text = $"파편: {currentShards} / {maxShards}";
-    }
-
-    public void UpdateGlitchGauge(float currentValue, float maxValue)
-    {
-        if (glitchGauge != null)
+        if (mainMenuUI != null)
         {
-            glitchGauge.value = currentValue;
-            glitchGauge.highValue = maxValue;
-            glitchGauge.title = $"Glitch: {(currentValue / maxValue) * 100:0}%";
-            Debug.Log("glitchGauge 찾음");
+            mainMenuUI.Initialize(root);
+            mainMenuUI.Show();
         }
+
+
+        if (gameHUD != null)
+        {
+            gameHUD.Initialize(root);
+        }
+
+        // if (pauseMenu != null) pauseMenu.Initialize(root);
+        // 일시정지는 초기화만 하고 가만히 둡니다. (UIBase에 의해 자동으로 Hide 상태임)
+    }
+
+    public void TogglePauseMenu(bool isPaused)
+    {
+        // if (isPaused) pauseMenu.Show();
+        // else pauseMenu.Hide();
     }
 }

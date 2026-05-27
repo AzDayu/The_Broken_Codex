@@ -3,32 +3,47 @@ using UnityEngine.UIElements;
 
 public class MainMenuUI : UIBase
 {
-    private Button _startButton;
-    private Button _quitButton;
+    private Button startBtn;
+    private Button quitBtn;
 
     protected override void BindElements()
     {
-        VisualElement startInstance = RootElement.Q<VisualElement>("main-btn-start");
-        VisualElement quitInstance = RootElement.Q<VisualElement>("main-btn-quit");
+        startBtn = RootElement.Q<Button>("StartButton");
+        quitBtn = RootElement.Q<Button>("QuitButton");
 
-        _startButton = startInstance.Q<Button>();
-        _quitButton = quitInstance.Q<Button>();
+        if (startBtn != null)
+        {
+            startBtn.clicked += OnStartClicked;
+            Debug.Log("StartButton 이벤트 연결 성공!");
+        }
+        else
+        {
+            Debug.LogError("StartButton을 UXML에서 찾을 수 없습니다. 이름을 확인해 주세요.");
+        }
 
-        if (_startButton != null) _startButton.clicked += OnStartClicked;
-        if (_quitButton != null) _quitButton.clicked += OnQuitClicked;
+        if (quitBtn != null)
+        {
+            quitBtn.clicked += OnQuitClicked;
+            Debug.Log("QuitButton 이벤트 연결 성공!");
+        }
+        else
+        {
+            Debug.LogError("QuitButton을 UXML에서 찾을 수 없습니다. 이름을 확인해 주세요.");
+        }
     }
 
     private void OnStartClicked()
     {
-        Debug.Log("게임을 시작합니다!");
+        Hide();
+        if (UIManager.Instance.gameHUD != null)
+        {
+            UIManager.Instance.gameHUD.Show();
+        }
     }
 
     private void OnQuitClicked()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
+        Debug.Log("게임을 종료합니다.");
         Application.Quit();
-#endif
     }
 }

@@ -31,7 +31,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         currentMoveSpeed = moveSpeed;
-        UIManager.Instance.UpdateHP(hp);
     }
 
     void Start()
@@ -130,7 +129,6 @@ public class PlayerController : MonoBehaviour
     {
         hp -= damage;
         // UI 업데이트 한 줄 호출!
-        UIManager.Instance.UpdateHP(hp);
     }
 
     //private void OnOpen(InputValue value)

@@ -44,7 +44,6 @@ public class SpawnManager : MonoBehaviour
             availableTiles.RemoveAt(randomIndex);
         }
 
-        UIManager.Instance.UpdateShards(0, count);
     }
 
     public void ClearExistingObjects()

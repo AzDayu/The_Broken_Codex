@@ -14,13 +14,10 @@ public class MapGenerator : MonoBehaviour
     public TileData wallData;
 
     [Header("Advanced Maze Settings")]
-    [Tooltip("미로의 방(칸) 개수 (예: 10x10 미로)")]
     public int mazeColumns = 10;
     public int mazeRows = 10;
 
-    [Tooltip("길의 두께 (추천: 2)")]
     public int pathWidth = 2;
-    [Tooltip("벽의 두께 (추천: 1)")]
     public int wallWidth = 1;
 
     private int mapWidth;

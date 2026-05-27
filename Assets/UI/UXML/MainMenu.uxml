@@ -1,9 +1,8 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
-    <ui:Template name="StartBtn" src="btn-start.uxml" />
-    <ui:Template name="QuitBtn" src="btn-quit.uxml" />
-
-    <ui:VisualElement name="main-container" style="flex-grow: 1; justify-content: center; align-items: center;">
-        <ui:Instance template="StartBtn" name="main-btn-start" />
-        <ui:Instance template="QuitBtn" name="main-btn-quit" />
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/MainMenuStyle.uss?fileID=7433441132597879392&amp;guid=4af481d0b92e6f240a42932bab8b013c&amp;type=3#MainMenuStyle"/>
+    <ui:VisualElement name="main-container" class="menu-container" style="flex-grow: 1; justify-content: center; align-items: center;">
+        <ui:Label text="The Broken Codex" name="Label" class="title-text" style="-unity-text-align: upper-left;"/>
+        <ui:Button text="Button" name="StartButton" class="menu-button"/>
+        <ui:Button text="Button" name="QuitButton" class="menu-button"/>
     </ui:VisualElement>
 </ui:UXML>
