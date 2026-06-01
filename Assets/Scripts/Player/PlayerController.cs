@@ -9,7 +9,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float jumpForce = 15f;
 
     [Header("Status")]
-    public bool canMove = true;
+    public bool _canMove = true;
+    public string _name;
+    public float _maxHP = 100;
+    public float _maxStamina = 100;
+    private float _HP = 100;
+    private float _stamina = 100;
 
     private float currentMoveSpeed;
     private TileType currentTile = TileType.None;
@@ -21,10 +26,6 @@ public class PlayerController : MonoBehaviour
     private CapsuleCollider2D capsuleCollider;
 
     private UIManager uiManager;
-
-    public int hp = 100;
-
-    
 
     private void Awake()
     {
@@ -45,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (canMove)
+        if (_canMove)
         {
             Vector2 checkPosition = (Vector2)transform.position + (moveInput.normalized * 0.3f);
 
@@ -78,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnMove(InputValue value)
     {
-        if (!canMove)
+        if (!_canMove)
         {
             moveInput = Vector2.zero;
             return;
@@ -124,11 +125,14 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
-
+    
     public void TakeDamage(int damage)
     {
-        hp -= damage;
-        // UI 업데이트 한 줄 호출!
+        _HP -= damage;
+        if (_HP > _maxHP)
+        {
+            _HP = _maxHP;
+        }
     }
 
     //private void OnOpen(InputValue value)

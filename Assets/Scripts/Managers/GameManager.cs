@@ -38,15 +38,15 @@ public class GameManager : MonoBehaviour
         }
 
         Debug.Log("1. 맵 생성을 시작합니다.");
-        mapGenerator.GenerateMap();
+        Dictionary<Vector2Int, TileType> generatedData = mapGenerator.GenerateMap();
 
-        if (MapManager.Instance != null)
+        if (MapManager.Instance != null && generatedData != null)
         {
-            Dictionary<Vector2Int, TileType> currentMapData = MapManager.Instance.GetMapData();
-            Tilemap currentTilemap = MapManager.Instance.targetTilemap;
+            MapManager.Instance.SetMapData(generatedData, mapGenerator.floorTilemap, mapGenerator.mapCenter);
+            Tilemap currentTilemap = MapManager.Instance._targetTilemap;
 
             Debug.Log("2. 파편 및 몬스터 스폰을 시작합니다.");
-            spawnManager.SpawnObjects(currentMapData, currentTilemap);
+            spawnManager.SpawnObjects(MapManager.Instance.GetMapData(), currentTilemap);
 
             if (player != null && currentTilemap != null)
             {
@@ -66,8 +66,8 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("스테이지 세팅 완료! 새로운 구역이 시작되었습니다.");
 
-
     }
+
 
     public void GoToNextStage()
     {

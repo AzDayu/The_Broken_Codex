@@ -7,12 +7,15 @@ public class MapManager : MonoBehaviour
     public static MapManager Instance { get; private set; }
 
     [HideInInspector]
-    public Tilemap targetTilemap;
+    public Tilemap _targetTilemap;
 
-    private Dictionary<Vector2Int, TileType> tileDataDict = new Dictionary<Vector2Int, TileType>();
+    private Dictionary<Vector2Int, TileType> _tileDataDict = new Dictionary<Vector2Int, TileType>();
 
-    public int debugOfficeTileCount;
-    public int debugGlitchTileCount;
+    public int _debugOfficeTileCount;
+    public int _debugGlitchTileCount;
+
+    public Vector2Int _mapCenter;
+
 
     private void Awake()
     {
@@ -27,25 +30,26 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    public void SetMapData(Dictionary<Vector2Int, TileType> generatedData, Tilemap tilemap)
+    public void SetMapData(Dictionary<Vector2Int, TileType> generatedData, Tilemap tilemap , Vector2Int mapCenter)
     {
-        tileDataDict = new Dictionary<Vector2Int, TileType>(generatedData);
-        targetTilemap = tilemap;
+        _tileDataDict = new Dictionary<Vector2Int, TileType>(generatedData);
+        _targetTilemap = tilemap;
+        _mapCenter = mapCenter;
     }
 
     public Dictionary<Vector2Int, TileType> GetMapData()
     {
-        return tileDataDict;
+        return _tileDataDict;
     }
 
     public TileType GetTileUnderPosition(Vector3 worldPosition)
     {
-        if (targetTilemap == null) return TileType.None;
+        if (_targetTilemap == null) return TileType.None;
 
-        Vector3Int cellPosition = targetTilemap.WorldToCell(worldPosition);
+        Vector3Int cellPosition = _targetTilemap.WorldToCell(worldPosition);
         Vector2Int gridPos = new Vector2Int(cellPosition.x, cellPosition.y);
 
-        if (tileDataDict.TryGetValue(gridPos, out TileType type))
+        if (_tileDataDict.TryGetValue(gridPos, out TileType type))
         {
             return type;
         }

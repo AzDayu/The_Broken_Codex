@@ -1,0 +1,28 @@
+{
+  "monsters": [
+    {
+      "id": "M001",
+      "name": "The Stalker",
+      "patternType": "Stalker",
+      "moveSpeed": 0.5,
+      "detectRange": 10.0,
+      "specialCooldown": 0.0
+    },
+    {
+      "id": "M002",
+      "name": "The Glitch Ambusher",
+      "patternType": "Ambusher",
+      "moveSpeed": 1.5,
+      "detectRange": 5.0,
+      "specialCooldown": 5.0
+    },
+    {
+      "id": "M003",
+      "name": "The Weeping Observer",
+      "patternType": "Observer",
+      "moveSpeed": 5.0,
+      "detectRange": 15.0,
+      "specialCooldown": 0.0
+    }
+  ]
+}

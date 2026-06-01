@@ -1,25 +1,22 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/USS/GameUIStyle.uss?fileID=7433441132597879392&amp;guid=861a8344dbb95454d96b28fd24889fd4&amp;type=3#GameUIStyle"/>
-    <ui:VisualElement name="MainContainer" style="flex-grow: 1; flex-basis: auto; width: auto; height: auto;">
-        <ui:VisualElement name="TopLeft_Panel" picking-mode="Position" style="flex-grow: 1; flex-basis: auto; flex-wrap: nowrap; flex-direction: column; width: auto; height: auto; aspect-ratio: auto; min-width: auto; min-height: auto; max-width: none; max-height: none; bottom: 0%; left: 20px; top: 20px; right: 0%; border-top-width: 0; position: absolute; align-content: flex-start; transform-origin: left top;">
-            <ui:Label text="Label" name="Label_PlayerInfo" style="position: absolute; top: 5px; left: 6px;"/>
-            <ui:VisualElement name="Gauge_Stamina_Fill" style="flex-grow: 1; width: 200px; height: 15px; background-color: rgb(0, 0, 0); position: absolute; top: 73px; left: -1px;"/>
-            <ui:VisualElement name="Gauge_HP_Fill" style="flex-grow: 1; width: 200px; height: 15px; background-color: rgb(0, 0, 0); position: absolute; top: 48px; left: -1px;"/>
-            <ui:ListView name="Container_BuffList" style="flex-direction: row; position: absolute; width: 25px; left: 1px; height: 40px; top: 101px; align-items: center;"/>
+    <ui:VisualElement name="MainContainer" style="flex-grow: 1; width: 100%; height: 100%;">
+        <ui:VisualElement name="TopLeft_Panel" style="position: absolute; top: 0; left: 0; padding-top: 20px; padding-left: 20px; width: auto; height: auto;">
+            <ui:Label text="Player Info" name="Label_PlayerInfo" class="unity-label" style="margin-bottom: 8px; position: relative; top: auto; left: auto;"/>
+            <ui:VisualElement name="HP_Bar_BG" style="width: 150px; height: 15px; flex-direction: column; position: relative; top: auto; left: auto;">
+                <ui:VisualElement name="Gauge_HP_Fill" style="flex-grow: 1; width: 100%; height: 100%; position: relative; top: auto; left: auto;"/>
+            </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="TopCenter_Panel" style="flex-grow: 1; align-self: auto; transform-origin: top; position: absolute; top: 20px; width: 58px;">
-            <ui:Label text="Label" name="Label_FloorDepth" style="position: absolute; top: 13px; left: 769px;"/>
+        <ui:VisualElement name="TopCenter_Panel" style="position: absolute; top: 0; left: auto; translate: -10% 0; padding-top: 20px; align-items: center; width: auto; height: auto; right: 0;">
+            <ui:VisualElement name="Gauge_Glitch_BG" style="width: 150px; height: 15px; flex-direction: column; position: relative; top: auto; left: auto;">
+                <ui:VisualElement name="Gauge_Glitch_Fill" style="flex-grow: 1; width: 100%; height: 100%; position: relative; top: auto; left: auto;"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="Radar_Icon" style="width: 40px; height: 40px; margin-top: 10px; position: relative; top: auto; left: auto;"/>
         </ui:VisualElement>
-        <ui:VisualElement name="TopRight_Panel" style="flex-grow: 1; right: 20px; bottom: auto; top: 20px; position: absolute; transform-origin: right top;">
-            <ui:VisualElement name="Gauge_Glitch_Fill" style="flex-grow: 1;"/>
-            <ui:VisualElement name="Radar_Icon" style="flex-grow: 1;"/>
-        </ui:VisualElement>
-        <ui:VisualElement name="Tick_Flash_Screen" style="flex-grow: 1; position: absolute; top: 0; left: 0; right: 0; bottom: 0;"/>
-        <ui:VisualElement name="BottomCenter_Panel" style="flex-grow: 1; position: absolute; transform-origin: bottom; bottom: 20px;">
-            <ui:VisualElement name="Gauge_Shard_Fill" style="flex-grow: 1;"/>
-        </ui:VisualElement>
-        <ui:VisualElement name="BottomLeft_Panel" style="flex-grow: 1; bottom: 20px; left: 20px; position: absolute; transform-origin: left bottom;">
-            <ui:VisualElement name="Container_SystemLog" style="flex-grow: 1;"/>
+        <ui:VisualElement name="BottomCenter_Panel" style="position: absolute; bottom: 0; left: 50%; translate: -50% 0; padding-bottom: 20px; align-items: center; width: auto; height: auto;">
+            <ui:VisualElement name="Gauge_Shard_BG" style="width: 150px; height: 15px; flex-direction: column; position: relative; top: auto; left: auto;">
+                <ui:VisualElement name="Gauge_Shard_Fill" style="flex-grow: 1; width: 100%; height: 100%; position: relative; top: auto; left: auto;"/>
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

@@ -1,22 +1,54 @@
-.shard-style {
-    font-size: 30px;
-    color: rgb(0, 255, 255);
+.unity-label {
+    color: rgba(255, 255, 255, 0.9);
     -unity-font-style: bold;
- 
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8); 
 }
 
-.hp-style {
-    font-size: 30px;
-    color: rgb(150, 255, 150);
-    -unity-font-style: bold;
-    margin-left: 20px;
-    margin-bottom: 20px;
+#HP_Bar_BG, #Stamina_Bar_BG, #Gauge_Glitch_BG, #Gauge_Shard_BG {
+    background-color: rgba(10, 10, 15, 0.8);
+    border-color: rgba(0, 255, 255, 0.3);   
+    border-width: 1px;
+    height: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    overflow: hidden;
 }
 
-.GlitchGauge-style {
-    font-size: 30px;
-    color: rgb(255, 0, 255);
-    -unity-font-style: bold;
-    margin-left: 20px;
-    margin-bottom: 20px;
+#Gauge_HP_Fill, #Gauge_Stamina_Fill, #Gauge_Glitch_Fill, #Gauge_Shard_Fill {
+    height: 100%;
+    transition-property: width;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+}
+
+#Gauge_HP_Fill      { background-color: rgb(220, 20, 60); }
+#Gauge_Stamina_Fill { background-color: rgb(30, 144, 255); }
+#Gauge_Glitch_Fill  { background-color: rgb(138, 43, 226); }
+#Gauge_Shard_Fill   { background-color: rgb(50, 205, 50); }
+
+
+#Label_FloorDepth {
+    font-size: 20px;
+    color: rgb(255, 215, 0); 
+    letter-spacing: 3px; 
+    text-shadow: 0px 0px 8px rgba(255, 215, 0, 0.6); 
+}
+
+#Container_SystemLog .unity-label {
+    color: rgb(0, 255, 65);
+    font-size: 14px;
+    -unity-font-style: normal;
+    text-shadow: 0px 0px 5px rgba(0, 255, 65, 0.5); 
+    margin-bottom: 2px;
+}
+
+#Tick_Flash_Screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0); 
+    picking-mode: ignore;
+    
+    transition-property: background-color;
+    transition-duration: 0.1s;
 }

@@ -1,6 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using System.Collections.Generic;
 
 public class MapGenerator : MonoBehaviour
 {
@@ -23,13 +23,18 @@ public class MapGenerator : MonoBehaviour
     private int mapWidth;
     private int mapHeight;
 
+    public Vector2Int mapCenter;
+
     [Range(0f, 1f)]
     public float glitchChance = 0.15f;
+    public int bossRoomWidth = 1;
+    public int bossRoomHeight = 1;
+
 
     [ContextMenu("Generate Map")]
-    public void GenerateMap()
+    public Dictionary<Vector2Int, TileType> GenerateMap()
     {
-        if (floorTilemap == null || wallTilemap == null || officeData == null || wallData == null) return;
+        if (floorTilemap == null || wallTilemap == null || officeData == null || wallData == null) return null;
 
         floorTilemap.ClearAllTiles();
         wallTilemap.ClearAllTiles();
@@ -71,7 +76,10 @@ public class MapGenerator : MonoBehaviour
             {
                 stack.Pop();
             }
+            
         }
+
+        CreateCenterPlaza(tempMapData);
 
         foreach (var kvp in tempMapData)
         {
@@ -92,10 +100,7 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
-        if (MapManager.Instance != null)
-        {
-            MapManager.Instance.SetMapData(tempMapData, floorTilemap);
-        }
+        return tempMapData;
     }
 
     private void CarveArea(Vector2Int pos1, Vector2Int pos2, Dictionary<Vector2Int, TileType> map)
@@ -121,9 +126,6 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
-
-
-
     private List<Vector2Int> GetUnvisitedNeighbors(Vector2Int pos, Dictionary<Vector2Int, TileType> map, int step)
     {
         List<Vector2Int> neighbors = new List<Vector2Int>();
@@ -142,5 +144,41 @@ public class MapGenerator : MonoBehaviour
             }
         }
         return neighbors;
+    }
+
+    private void CreateCenterPlaza(Dictionary<Vector2Int, TileType> mapData)
+    {
+        mapCenter = new Vector2Int(mapWidth / 2, mapHeight / 2);
+
+        int radiusX = bossRoomWidth;
+        int radiusY = bossRoomHeight;
+
+        for (int x = mapCenter.x - radiusX; x <= mapCenter.x + radiusX; x++)
+        {
+            for (int y = mapCenter.y - radiusY; y <= mapCenter.y + radiusY; y++)
+            {
+                Vector2Int pos = new Vector2Int(x, y);
+
+                bool isBorder = (x == mapCenter.x - radiusX || x == mapCenter.x + radiusX ||
+                                 y == mapCenter.y - radiusY || y == mapCenter.y + radiusY);
+
+                if (isBorder)
+                {
+                    continue;
+                }
+
+                if (x > 0 && x < mapWidth - 1 && y > 0 && y < mapHeight - 1)
+                {
+                    if (Random.value < glitchChance)
+                    {
+                        mapData[pos] = TileType.Glitch;
+                    }
+                    else
+                    {
+                        mapData[pos] = TileType.Office;
+                    }
+                }
+            }
+        }
     }
 }
