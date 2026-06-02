@@ -1,6 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -85,6 +86,12 @@ public class PlayerController : MonoBehaviour
             return;
         }
         moveInput = value.Get<Vector2>();
+    }
+
+    private void OnInventory(InputValue value)
+    {
+
+        UIManager.Instance.inventoryUI.Show();
     }
 
     private void OnJump()

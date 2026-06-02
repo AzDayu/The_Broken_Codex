@@ -404659,6 +404659,7 @@ GameObject:
   - component: {fileID: 881854098}
   - component: {fileID: 881854097}
   - component: {fileID: 881854100}
+  - component: {fileID: 881854101}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
@@ -404731,6 +404732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
   gameHUD: {fileID: 881854097}
   mainMenuUI: {fileID: 881854100}
+  inventoryUI: {fileID: 881854101}
 --- !u!114 &881854100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404744,6 +404746,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuUI
   LayoutAsset: {fileID: 9197481963319205126, guid: d02f46f6a82fee8418fc255b42d480ed, type: 3}
+--- !u!114 &881854101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881854093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f61f1341fad5540895221e7a031eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InventoryUI
+  LayoutAsset: {fileID: 9197481963319205126, guid: 32e86b84b07e20349ab63ad022440da8, type: 3}
+  maxSlots: 20
+  isShow: 0
 --- !u!1 &965281761
 GameObject:
   m_ObjectHideFlags: 0
@@ -486499,6 +486516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc47d7e8e07b9724bbcc41d16bb04d60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnManager
+  monsterDataJson: {fileID: 4900000, guid: 5aa8a6483aad3dd40b069fa2f188c726, type: 3}
   shardPrefab: {fileID: 961084511379345076, guid: dd915217cf45eab43945e38e13cf5068, type: 3}
   bossPrefab: {fileID: 4474224658452617763, guid: bbdc9a7635142da4eab030172ec40c4b, type: 3}
   normalMonsters:

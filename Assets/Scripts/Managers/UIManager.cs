@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [Header("UI Controllers")]
     public GameHUDUI gameHUD;
     public MainMenuUI mainMenuUI;
+    public InventoryUI inventoryUI;
 
     private void Awake()
     {
@@ -34,6 +35,12 @@ public class UIManager : MonoBehaviour
             gameHUD.Initialize(root);
         }
 
+        if (inventoryUI != null)
+        {
+            inventoryUI.Initialize(root);
+        }
     }
+
+
 
 }

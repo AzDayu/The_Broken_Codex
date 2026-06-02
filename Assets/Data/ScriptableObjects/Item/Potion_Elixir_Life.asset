@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74a14c4e2b47364fb8739adf5c9fb85, type: 3}
+  m_Name: Potion_Elixir_Life
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemID: 005
+  itemName: "\uCF54\uB371\uC2A4 \uC5D8\uB9AD\uC11C"
+  itemIcon: {fileID: 4130640169021434097, guid: 726a09091bff0c64ca9fe3e9486f7d37, type: 3}
+  itemType: 1
+  description: "\uCD5C\uB300 \uCCB4\uB825\uC744 \uC601\uAD6C\uD788 \uB298\uB824\uC8FC\uAC70\uB098
+    \uBAA8\uB4E0 \uB514\uBC84\uD504\uB97C \uD574\uC81C"
+  value: 0
+  isStackable: 0

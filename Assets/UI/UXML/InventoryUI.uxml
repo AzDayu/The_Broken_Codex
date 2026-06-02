@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/USS/InventoryStyle.uss"/>
+    
+    <ui:VisualElement name="Inventory_Root" class="root-container">
+        
+        <ui:VisualElement name="Left_PlayerPanel" class="main-panel">
+            <ui:Label name="Label_PlayerName" text="플레이어 이름" class="panel-title" />
+            <ui:VisualElement name="Image_PlayerPortrait" class="portrait-box" />
+            <ui:VisualElement name="Container_Stats" class="stats-box">
+                <ui:Label text="스텟들 (HP, Stamina 등)" class="stats-text" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="Right_InventoryPanel" class="main-panel">
+            <ui:Label name="Label_ShardCount" text="파편 수: 0" class="panel-title shard-title" />
+            <ui:VisualElement name="Container_SlotGrid" class="slot-grid" />
+        </ui:VisualElement>
+        
+    </ui:VisualElement>
+</ui:UXML>
